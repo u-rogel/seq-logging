@@ -9,6 +9,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "build:browser": "rollup --config ./rollup.browser.config.js",
+    "build:node": "rollup --config ./rollup.node.config.js",
+    "build": "npm run build:browser && npm run build:node",
     "coverage": "nyc --reporter=text mocha",
     "start": "node ./example/example.js",
     "typecheck": "tsc --noEmit"
@@ -21,9 +24,11 @@
     "url": "https://github.com/datalust/seq-logging.git"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.2",
     "mocha": "^9.2.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "nyc": "^15.1.0",
+    "rollup": "^3.25.3",
     "simple-mock": "^0.8.0",
     "superagent": "^6.1.0",
     "typescript": "^4.7.4",
