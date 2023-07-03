@@ -1,7 +1,7 @@
 "use strict";
 
 let process = require('process');
-let SeqLogger = require('..');
+let SeqLogger = require('../lib/node/seq_logger');
 
 let seq = new SeqLogger({ serverUrl: 'http://localhost:5341' });
 var n = 0;

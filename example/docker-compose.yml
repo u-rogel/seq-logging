@@ -1,0 +1,24 @@
+version: '3'
+services:
+  seq:
+    image: datalust/seq:latest
+    deploy: 
+      resources:
+        limits:
+          memory: 14G
+        reservations:
+          memory: 14G
+    # volumes:
+    #   - /datadrive:/data
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 80:80
+      - 5341:5341
+    expose:
+      - 80
+      - 5341
+    labels:
+      - traefik.backend=seq
+      - traefik.frontend.rule=Host:seq.<snip>.com
+      - traefik.port=80
